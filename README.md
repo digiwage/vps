@@ -75,13 +75,13 @@ These are only a couple of examples for typical setups. Check my [easy step-by-s
 **Install & configure 4 phils masternodes:**
 
 ```bash
-./install.sh -p pivx -c 4
+./install.sh -p phils -c 4
 ```
 
 **Install 4 phils masternodes, update daemon:**
 
 ```bash
-./install.sh -p pivx -c 4 -u
+./install.sh -p phils -c 4 -u
 ```
 
 **Install 6 phils masternodes with the git release tag "tags/v3.0.5.1"**
