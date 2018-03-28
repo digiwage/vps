@@ -7,6 +7,14 @@ I am quite confident this is the single best and almost effortless way to setup 
 If this script helped you in any way, please contribute some feedback. BTC donations also welcome and never forget:
 
 **Have fun, this is crypto after all!**
+
+Phils Donation address for damiensgit:
+
+```
+PHILS  PZTtteHGVietyoeuwHyeZW7LkQSJcEzBN8
+```
+
+Masternode Donation address:
 ```
 BTC  33ENWZ9RCYBG7nv6ac8KxBUSuQX64Hx3x3
 ```
@@ -50,13 +58,13 @@ Some security hardening is done, including firewalling and a separate user
 SSH to your VPS and clone the Github repository:
 
 ```bash
-git clone https://github.com/masternodes/vps.git && cd vps
+git clone https://github.com/damiensgit/vps.git && cd vps
 ```
 
 Install & configure your desired master node with options:
 
 ```bash
-./install.sh -p pivx
+./install.sh -p phils
 ```
 
 
@@ -64,34 +72,34 @@ Install & configure your desired master node with options:
 
 These are only a couple of examples for typical setups. Check my [easy step-by-step guide for [vultr](/docs/masternode_vps.md) that will guide you through the hardest parts. 
 
-**Install & configure 4 PIVX masternodes:**
+**Install & configure 4 phils masternodes:**
 
 ```bash
-./install.sh -p pivx -c 4
+./install.sh -p phils -c 4
 ```
 
-**Install 4 PIVX masternodes, update daemon:**
+**Install 4 phils masternodes, update daemon:**
 
 ```bash
-./install.sh -p pivx -c 4 -u
+./install.sh -p phils -c 4 -u
 ```
 
-**Install 6 PIVX masternodes with the git release tag "tags/v3.0.5.1"**
+**Install 6 phils masternodes with the git release tag "tags/v3.0.5.1"**
 
 ```bash
-./install.sh -p pivx -c 6 -r "tags/v3.0.5.1"
+./install.sh -p phils -c 6 -r "tags/v3.0.5.1"
 ```
 
-**Wipe all PIVX masternode data:**
+**Wipe all phils masternode data:**
 
 ```bash
-./install.sh -p pivx -w
+./install.sh -p phils -w
 ```
 
-**Install 2 PIVX masternodes and configure sentinel monitoring:**
+**Install 2 phils masternodes and configure sentinel monitoring:**
 
 ```bash
-./install.sh -p pivx -c 2 -s
+./install.sh -p phils -c 2 -s
 ```
 
 ## Options
@@ -111,10 +119,10 @@ The *install.sh* script support the following parameters:
 
 ## Troubleshooting the masternode on the VPS
 
-If you want to check the status of your masternode, the best way is currently running the cli e.g. for $MUE via
+If you want to check the status of your masternode, the best way is currently running the cli e.g. for $PHILS via
 
 ```
-/usr/local/bin/mue-cli -conf=/etc/masternodes/mue_n1.conf getinfo
+/usr/local/bin/philscurrency-cli -conf=/etc/masternodes/mue_n1.conf getinfo
 
 {
   "version": 1000302,
@@ -156,17 +164,18 @@ The management script release will follow within the next couple of days.
 
 | command | description |
 | :--- | --- |
-| nodemaster start pivx (all\|number) | start all or a specific pivx masternode(s) |
-| nodemaster restart pivx (all\|number) | stop all or a specific pivx masternode(s) |
-| nodemaster stop pivx (all\|number) | restart all or a specific pivx masternode(s) |
-| nodemaster cleanup pivx (all\|number) | delete chain data for all pivx masternodes |
-| nodemaster status pivx (all\|number) | systemd process status for a pivx masternode |
-| nodemaster tail pivx (all\|number) | tail debug logs for a pivx masternode |
+| nodemaster start phils (all\|number) | start all or a specific phils masternode(s) |
+| nodemaster restart phils (all\|number) | stop all or a specific phils masternode(s) |
+| nodemaster stop phils (all\|number) | restart all or a specific phils masternode(s) |
+| nodemaster cleanup phils (all\|number) | delete chain data for all phils masternodes |
+| nodemaster status phils (all\|number) | systemd process status for a phils masternode |
+| nodemaster tail phils (all\|number) | tail debug logs for a phils masternode |
 
 # Supported cryptos
 
 | CRYPTO  | Logo | Url |
 |--------|--------------|-----|
+| PHILS |  ![PHILS](/assets/phils.jpg)  |  http://philscurrency.org |
 | PIVX |  ![PIVX](/assets/pivx.jpg)  |  https://pivx.org/ |
 | DASH |  ![DASH](/assets/dash.jpg)  | https://www.dash.org/ |
 | DESIRE |  ![DESIRE](/assets/desire.jpg)  | https://github.com/lazyboozer/Desire  |
@@ -224,6 +233,14 @@ The management script release will follow within the next couple of days.
 Ping me at contact@marsmenschen.com for questions and send some crypto my way if you are happy.
 
 **Have fun, this is crypto after all!**
+
+Phils Donation address for damiensgit:
+
+```
+PHILS  PZTtteHGVietyoeuwHyeZW7LkQSJcEzBN8
+```
+
+Masternode Donation address:
 ```
 BTC  33ENWZ9RCYBG7nv6ac8KxBUSuQX64Hx3x3
 ```
