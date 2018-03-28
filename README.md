@@ -2,18 +2,25 @@
 
 Digiwage quick guide:
 
-1 - Login to your VPS instance as root and run:
-2 - git clone https://github.com/damiensgit/vps.git && cd vps
-3 - For ONE MN run: ./install.sh -p digiwage
-3a - For say, 4 MN, run: ./install.sh -p digiwage -c 4
-4 - The digiwage source build should happen. It could take 15minutes so be patient
-5 - When the build is done and the script finishes, check the console output and make sure there are no errors.
-6 - Follow the guide at https://github.com/digiwage/digiwage_install/blob/master/digiwage_guide.txt to get your MN gen key ready
-7 - On the VPS again, run nano /etc/masternodes/digiwage_n1.conf and place your genkey after masternodeprivkey= as shown
-8 - Now you can activate the digiwage masternode(s) by running: /usr/local/bin/activate_masternodes_digiwage
-9 - This will install the daemons as ubuntu services so you can stop/restart them easily any time by running: systemctl restart digiwage_n1 (where n1 is the MN number you want to restart)
-10 - To interact with the digiwage cli, you must always specify the config file so e.g. to check the status of the masternode run:/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n1.conf masternode status
-Tips: the wallet and data are stored in /var/lib/masternodes/digiwageN/ where n is the masternode number (1,2, 3...). You will find debug.log here.
+IMPORTANT NOTE: For multiple masternodes on the SAME VPS instance, you MUST HAVE IPv6 enabled otherwise things won't work. For vultr it's a simple checkbox when creating a VPS instance but for digital ocean a little more work is required (see their IPv6 guide).
+
+1. - Login to your VPS instance as root and run:
+2. - ```git clone https://github.com/damiensgit/vps.git && cd vps```
+3. - For ONE MN run: ```./install.sh -p digiwage```, for say, 4 MN, run: ```./install.sh -p digiwage -c 4```
+4. - The digiwage source build should happen. It could take 15 minutes so be patient.
+5. - When the build is done and the script finishes, check the console output and make sure there are no errors.
+6. - Follow the guide at https://github.com/digiwage/digiwage_install/blob/master/digiwage_guide.txt to get your MN gen key ready.
+7. - On the VPS again, run ```nano /etc/masternodes/digiwage_n1.conf``` and place your genkey after ```masternodeprivkey=``` as shown.
+8. - Now you can activate the digiwage masternode(s) by running: ```/usr/local/bin/activate_masternodes_digiwage```
+9. - This will install the daemons as ubuntu services so you can stop/restart them easily any time by running: ```systemctl restart digiwage_n1``` (where n1 is the MN number you want to restart)
+10. - To interact with the digiwage cli, you must always specify the config file so e.g. to check the status of the masternode run: ```/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n1.conf masternode status```
+
+Tips:
+
++ the wallet and data are stored in ```/var/lib/masternodes/digiwageN/``` where n is the masternode number (1,2, 3...). You will find debug.log here.
++ A 1GB Vultr instance (5 USD one) should be able to serve 5-6 masternodes without issue. Use the top command to monitor mem / cpu usage to judge.
++ Want to add another masternode down the line? EZ PZ:  ```./install.sh -p digiwage -c 6``` (assume you had 4 setup before).
++ New coin update? Sure: ```./install.sh -p digiwage -c 4 -u``` (remember to set number after -c to the number of nodes you have running).
 
 
 Digiwage Donation address for damiensgit:
