@@ -1,18 +1,37 @@
+*!THIS IS A FORK FOR DIGIWAGE!*
+
+Digiwage quick guide users:
+
+1 - Login to your VPS instance as root and run:
+2 - git clone https://github.com/damiensgit/vps.git && cd vps
+3 - For ONE MN run: ./install.sh -p phils
+3a - For say, 4 MN, run: ./install.sh -p phils -c 4
+4 - The digiwage source build should happen. It could take 15minutes so be patient
+5 - When the build is done and the script finishes, check the console output and make sure there are no errors.
+6 - Follow the guide at https://github.com/digiwage/digiwage_install/blob/master/digiwage_guide.txt to get your MN gen key ready
+7 - On the VPS again, run nano /etc/masternodes/digiwage_n1.conf and place your genkey after masternodeprivkey= as shown
+8 - Now you can activate the digiwage masternode(s) by running: /usr/local/bin/activate_masternodes_digiwage
+9 - This will install the daemons as ubuntu services so you can stop/restart them easily any time by running: systemctl restart digiwage_n1 (where n1 is the MN number you want to restart)
+10 - To interact with the digiwage cli, you must always specify the config file so e.g. to check the status of the masternode run:/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n1.conf masternode status
+
+
+Digiwage Donation address for damiensgit:
+
+```
+WAGE  D9BtxRRZ9cW5CmZFBHCZV9GfutBfC4Upmk
+```
+
+Original Readme:
+
 # Nodemaster
 
-The **Nodemaster** scripts is a collection of utilities to manage, setup and update masternode instances. 
+The **Nodemaster** scripts is a collection of utilities to manage, setup and update masternode instances.
 
 I am quite confident this is the single best and almost effortless way to setup different crypto masternodes, without bothering too much about the setup part.
 
 If this script helped you in any way, please contribute some feedback. BTC donations also welcome and never forget:
 
 **Have fun, this is crypto after all!**
-
-Phils Donation address for damiensgit:
-
-```
-PHILS  PZTtteHGVietyoeuwHyeZW7LkQSJcEzBN8
-```
 
 Masternode Donation address:
 ```
@@ -25,17 +44,17 @@ Feel free to use my reflink to signup and receive a bonus w/ vultr:
 ---
 **NOTE on the VPS choice for starters**
 
-**Vultr** is highly recommended for this kind of setup. I created an [easy step-by-step guide for the VPS provider vultr](/docs/masternode_vps.md) that will guide you through the hardest parts. 
+**Vultr** is highly recommended for this kind of setup. I created an [easy step-by-step guide for the VPS provider vultr](/docs/masternode_vps.md) that will guide you through the hardest parts.
 
 ---
 
 ## About / Background
 
-Many masternode crypto currencies only have incomplete or even non-existing instructions available how to setup a masternode from source. 
+Many masternode crypto currencies only have incomplete or even non-existing instructions available how to setup a masternode from source.
 
 This project started as handy bash script to setup my $PIVX masternodes in 2016 when there was almost zero documentation and anything that existed was either $DASH specific, sucked and in most cases both. For that reason, i started to work on a not-so-sucking way to install a lot of different masternodes with next to none manual intervention.
 
-If you are not already aware, visit the project site and join the slack. The website at [https://pivx.org/](https://pivx.org/) is also well worth a visit. 
+If you are not already aware, visit the project site and join the slack. The website at [https://pivx.org/](https://pivx.org/) is also well worth a visit.
 
 Many people use binaries, end of with an insecure configuration or fail completely. This is obviously bad for the stability of the individual network.
 
@@ -64,47 +83,47 @@ git clone https://github.com/damiensgit/vps.git && cd vps
 Install & configure your desired master node with options:
 
 ```bash
-./install.sh -p phils
+./install.sh -p digiwage
 ```
 
 
-## Examples for typical script invocation 
+## Examples for typical script invocation
 
-These are only a couple of examples for typical setups. Check my [easy step-by-step guide for [vultr](/docs/masternode_vps.md) that will guide you through the hardest parts. 
+These are only a couple of examples for typical setups. Check my [easy step-by-step guide for [vultr](/docs/masternode_vps.md) that will guide you through the hardest parts.
 
-**Install & configure 4 phils masternodes:**
+**Install & configure 4 digiwage masternodes:**
 
 ```bash
-./install.sh -p phils -c 4
+./install.sh -p digiwage -c 4
 ```
 
-**Install 4 phils masternodes, update daemon:**
+**Install 4 digiwage masternodes, update daemon:**
 
 ```bash
-./install.sh -p phils -c 4 -u
+./install.sh -p digiwage -c 4 -u
 ```
 
-**Install 6 phils masternodes with the git release tag "tags/v3.0.5.1"**
+**Install 6 digiwage masternodes with the git release tag "tags/v3.0.5.1"**
 
 ```bash
-./install.sh -p phils -c 6 -r "tags/v3.0.5.1"
+./install.sh -p digiwage -c 6 -r "tags/v3.0.5.1"
 ```
 
-**Wipe all phils masternode data:**
+**Wipe all digiwage masternode data:**
 
 ```bash
-./install.sh -p phils -w
+./install.sh -p digiwage -w
 ```
 
-**Install 2 phils masternodes and configure sentinel monitoring:**
+**Install 2 digiwage masternodes and configure sentinel monitoring:**
 
 ```bash
-./install.sh -p phils -c 2 -s
+./install.sh -p digiwage -c 2 -s
 ```
 
 ## Options
 
-The *install.sh* script support the following parameters: 
+The *install.sh* script support the following parameters:
 
 | Long Option | Short Option | Values | description |
 | :--- | :--- | --- | --- |
@@ -119,10 +138,10 @@ The *install.sh* script support the following parameters:
 
 ## Troubleshooting the masternode on the VPS
 
-If you want to check the status of your masternode, the best way is currently running the cli e.g. for $PHILS via
+If you want to check the status of your masternode, the best way is currently running the cli e.g. for $digiwage via
 
 ```
-/usr/local/bin/philscurrency-cli -conf=/etc/masternodes/mue_n1.conf getinfo
+/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n1.conf getinfo
 
 {
   "version": 1000302,
@@ -154,28 +173,24 @@ If this script helped you in any way, please contribute some feedback. BTC donat
 
 **Have fun, this is crypto after all!**
 
-```
-BTC  33ENWZ9RCYBG7nv6ac8KxBUSuQX64Hx3x3
-```
-
 ## Management script (not yet implemented)
 
-The management script release will follow within the next couple of days. 
+The management script release will follow within the next couple of days.
 
 | command | description |
 | :--- | --- |
-| nodemaster start phils (all\|number) | start all or a specific phils masternode(s) |
-| nodemaster restart phils (all\|number) | stop all or a specific phils masternode(s) |
-| nodemaster stop phils (all\|number) | restart all or a specific phils masternode(s) |
-| nodemaster cleanup phils (all\|number) | delete chain data for all phils masternodes |
-| nodemaster status phils (all\|number) | systemd process status for a phils masternode |
-| nodemaster tail phils (all\|number) | tail debug logs for a phils masternode |
+| nodemaster start digiwage (all\|number) | start all or a specific digiwage masternode(s) |
+| nodemaster restart digiwage (all\|number) | stop all or a specific digiwage masternode(s) |
+| nodemaster stop digiwage (all\|number) | restart all or a specific digiwage masternode(s) |
+| nodemaster cleanup digiwage (all\|number) | delete chain data for all digiwage masternodes |
+| nodemaster status digiwage (all\|number) | systemd process status for a digiwage masternode |
+| nodemaster tail digiwage (all\|number) | tail debug logs for a digiwage masternode |
 
 # Supported cryptos
 
 | CRYPTO  | Logo | Url |
 |--------|--------------|-----|
-| PHILS |  ![PHILS](/assets/phils.jpg)  |  http://philscurrency.org |
+| DIGIWAGE |  ![DIGIWAGE](/assets/digiwage.jpg)  |  TBC |
 | PIVX |  ![PIVX](/assets/pivx.jpg)  |  https://pivx.org/ |
 | DASH |  ![DASH](/assets/dash.jpg)  | https://www.dash.org/ |
 | DESIRE |  ![DESIRE](/assets/desire.jpg)  | https://github.com/lazyboozer/Desire  |
@@ -224,7 +239,7 @@ The management script release will follow within the next couple of days.
 # Todo
 * provide my Dockerfile & Vagrantfile
 * write more test cases
-* implement a binary option (?) 
+* implement a binary option (?)
 * output all supported cryptos as list within help
 
 # Errors
@@ -233,14 +248,3 @@ The management script release will follow within the next couple of days.
 Ping me at contact@marsmenschen.com for questions and send some crypto my way if you are happy.
 
 **Have fun, this is crypto after all!**
-
-Phils Donation address for damiensgit:
-
-```
-PHILS  PZTtteHGVietyoeuwHyeZW7LkQSJcEzBN8
-```
-
-Masternode Donation address:
-```
-BTC  33ENWZ9RCYBG7nv6ac8KxBUSuQX64Hx3x3
-```
