@@ -198,7 +198,7 @@ The management script release will follow within the next couple of days.
 
 | CRYPTO  | Logo | Url |
 |--------|--------------|-----|
-| DIGIWAGE |  ![DIGIWAGE](/assets/digiwage.jpg)  |  TBC |
+| DIGIWAGE |  ![DIGIWAGE](/assets/digiwage.jpg)  |  https://www.digiwage.org/ |
 | PIVX |  ![PIVX](/assets/pivx.jpg)  |  https://pivx.org/ |
 | DASH |  ![DASH](/assets/dash.jpg)  | https://www.dash.org/ |
 | DESIRE |  ![DESIRE](/assets/desire.jpg)  | https://github.com/lazyboozer/Desire  |
