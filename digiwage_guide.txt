@@ -1,0 +1,49 @@
+Digiwage quick guide (compiled by Daniel_M from Discord)
+On the VPS:
+If you want to run more than 1 MN: * MAKE SURE YOUR VPS INSTANCE HAS IPv6 ENABLED * 
+Login to your VPS instance as root and run: git clone https://github.com/damiensgit/vps.git && cd vps
+
+For ONE MN run: ./install.sh -p digiwage
+For say, 2 MN, run: ./install.sh -p digiwage -c 5
+
+The digiwage source build should happen. It could take 15minutes so be patient
+When the build is done and the script finishes, check the console output and make sure there are no errors.
+
+On the Wallet:
+Follow this guide:https://github.com/digiwage/digiwage_install/blob/master/digiwage_guide.txt
+Additions to this guide
+Generate multiple Genkeys for the number of MN's you intend to run
+When adding genkey, txid and id number to your masternode.conf file the guide says to add IP address:46003. This is wrong. Obtain IPV6 addres from VPS by running ifconfig from console
+for 2 MN's grab 2 IPV6 address from the ifconfig command and add those to your conf file surrounded by [] ([IPV6 ADDRESS]:port)
+for example:
+MN1  [2001:19f0:5:1993:2013::2]:46003 your_genkey_goes_here your_tx_id_goes_here index_id_num_here
+MN2 [2001:19f0:5:1199:2013::1]:46003 your_genkey_goes_here your_tx_id_goes_here index_id_num_here
+
+On the VPS:
+Edit the number of conf files to the number of MN's you are creating. Below Im editing for 2 MN's on this VPS
+run nano /etc/masternodes/digiwage_n1.conf and place your first genkey after masternodeprivkey= as shown
+run nano /etc/masternodes/digiwage_n2.conf and place your second genkey after masternodeprivkey= as shown
+
+Now you can activate the digiwage masternode(s) by running: /usr/local/bin/activate_masternodes_digiwage
+9 - This will install the daemons as ubuntu services so you can stop/restart them easily any time.
+
+Stop and start your MN's by running the following command for the number of MN's you are configuring. IN this example I'm doing 2 MN'say
+systemctl restart digiwage_n1
+systemctl restart digiwage_n2
+
+Now check the status of your MN's (can be done anytime) by running the following command. Again in this example it will be run twice for MN1 and MN2
+/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n1.conf masternode status
+/usr/local/bin/digiwage-cli -conf=/etc/masternodes/digiwage_n2.conf masternode status
+
+You should see that the nodes are waiting for remote start.
+
+On the Wallet:
+Open the debug console and start your MN'say
+startmasternode alias false MN1
+startmasternode alias false MN2
+
+You should have success
+
+Tips: 
+The wallet and data are stored in /var/lib/masternodes/digiwageN/ where n is the masternode number (1,2, 3...). You will also find debug.log here.
+On the vultr 1GB 5USD instance you should be able to easily run 5 masternodes. I use the top command to monitor CPU/mem usage over time.(edited)
