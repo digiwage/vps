@@ -1,0 +1,19 @@
+To start staking with Digiwage, you need to download latest Digiwage core wallet for your operating system from our official website or github, sync the wallet upto date.
+Step 1 ==> Make sure you have coins in the wallet you want to stake and wait till 101 confirmations
+Step 2 ==> If you have not already done, encrypt your Digiwage wallet with a passphrase and make sure you have it written down somewhere safe. If you forget your passphrase ever, there is no way to recover your funds, so make sure your passphrase is very safe.
+Step 3 ==> Now we need to unlock the wallet for only staking, for this go to Settings -> Unlock wallet, enter your passphrase and click the option "For anonymization and staking only". This will ensure your wallet is unlocked only for staking and the wallet is locked for rest of the functions making sure your funds are secure
+Step 4 ==> Once you are done unlocking your wallet for staking, your wallet funds will start staking after reaching the stake mininimum age of 1 hour.
+
+Once your wallet starts staking, you will notice a green staking active icon at the bottom right of your desktop wallet.
+
+For those staking on VPS, to check staking status you can type the following command from your terminal 
+
+getstakingstatus
+
+If all the enries show "true" your wallet is staking good.
+
+Stake rewards will show up as MINTED entries in transactions on your desktop wallet.
+
+HAPPY STAKING!!
+
+For any assistance regarding staking, feel free to contact us on discord @ https://discord.gg/822ezXx and post your queries on #staking channel.
